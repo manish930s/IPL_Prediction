@@ -4,40 +4,51 @@ import { PlayerPerformanceChart } from "@/components/player-performance-chart";
 import { AIInsightSection } from "@/components/ai-insight-section";
 import { Separator } from "@/components/ui/separator";
 
-// Placeholder data - replace with actual data fetching logic
+// Placeholder data for IPL 2025 - replace with actual data fetching logic
 const upcomingMatches = [
   {
     team1: "Mumbai Indians",
     team2: "Chennai Super Kings",
-    predictedWinner: "Mumbai Indians",
-    confidence: 75,
-    keyFactors: ["Recent Form", "Head-to-Head", "Rohit Sharma's form"],
-    date: "Apr 15, 2025", // Updated year
-    venue: "Wankhede Stadium, Mumbai",
-    team1Logo: "https://picsum.photos/seed/mi/40/40",
-    team2Logo: "https://picsum.photos/seed/csk/40/40",
+    predictedWinner: "Chennai Super Kings",
+    confidence: 65,
+    keyFactors: ["Venue History", "CSK Spinners", "MI Middle Order"],
+    date: "Apr 05, 2025",
+    venue: "MA Chidambaram Stadium, Chennai",
+    team1Logo: "https://picsum.photos/seed/mi25/40/40",
+    team2Logo: "https://picsum.photos/seed/csk25/40/40",
   },
   {
-    team1: "Royal Challengers Bangalore",
+    team1: "Royal Challengers Bangalore", // Now Bengaluru
     team2: "Kolkata Knight Riders",
-    predictedWinner: "Kolkata Knight Riders",
-    confidence: 68,
-    keyFactors: ["Spin Attack", "Venue Record", "Maxwell's inconsistency"],
-    date: "Apr 16, 2025", // Updated year
-    venue: "Eden Gardens, Kolkata",
-    team1Logo: "https://picsum.photos/seed/rcb/40/40",
-    team2Logo: "https://picsum.photos/seed/kkr/40/40",
+    predictedWinner: "Royal Challengers Bangalore",
+    confidence: 72,
+    keyFactors: ["Home Advantage", "Kohli's Form", "KKR Pace Attack"],
+    date: "Apr 06, 2025",
+    venue: "M. Chinnaswamy Stadium, Bengaluru",
+    team1Logo: "https://picsum.photos/seed/rcb25/40/40",
+    team2Logo: "https://picsum.photos/seed/kkr25/40/40",
   },
    {
-    team1: "Delhi Capitals",
+    team1: "Gujarat Titans",
+    team2: "Rajasthan Royals",
+    predictedWinner: "Gujarat Titans",
+    confidence: 68,
+    keyFactors: ["Strong Bowling Unit", "Gill's Captaincy", "RR Batting Depth"],
+    date: "Apr 07, 2025",
+    venue: "Narendra Modi Stadium, Ahmedabad",
+    team1Logo: "https://picsum.photos/seed/gt25/40/40",
+    team2Logo: "https://picsum.photos/seed/rr25/40/40",
+  },
+   {
+    team1: "Lucknow Super Giants",
     team2: "Sunrisers Hyderabad",
-    predictedWinner: "Delhi Capitals",
-    confidence: 82,
-    keyFactors: ["Strong Batting", "Warner's Experience", "Home Advantage"],
-    date: "Apr 17, 2025", // Updated year
-    venue: "Arun Jaitley Stadium, Delhi",
-    team1Logo: "https://picsum.photos/seed/dc/40/40",
-    team2Logo: "https://picsum.photos/seed/srh/40/40",
+    predictedWinner: "Sunrisers Hyderabad",
+    confidence: 70,
+    keyFactors: ["Aggressive Batting", "SRH Pace Battery", "LSG Finishing Issues"],
+    date: "Apr 08, 2025",
+    venue: "Rajiv Gandhi International Stadium, Hyderabad",
+    team1Logo: "https://picsum.photos/seed/lsg25/40/40",
+    team2Logo: "https://picsum.photos/seed/srh25/40/40",
   },
 ];
 
@@ -52,8 +63,8 @@ export default function Home() {
 
         {/* Upcoming Match Predictions Section */}
         <section>
-          <h2 className="text-xl font-semibold mb-4">Upcoming Matches</h2>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <h2 className="text-xl font-semibold mb-4">Upcoming Matches (IPL 2025 - Sample)</h2>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
             {upcomingMatches.map((match, index) => (
               <MatchPredictionCard key={index} {...match} />
             ))}
@@ -81,7 +92,7 @@ export default function Home() {
        <footer className="py-6 md:px-8 md:py-0 border-t">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Built by Your Name/Team. © {new Date().getFullYear()} Cricket Oracle. All rights reserved.
+            Built using Firebase AI Extensions. © {new Date().getFullYear()} Cricket Oracle. All rights reserved.
           </p>
         </div>
       </footer>

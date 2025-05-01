@@ -4,153 +4,188 @@ import { PlayerPerformanceChart } from "@/components/player-performance-chart";
 import { AIInsightSection } from "@/components/ai-insight-section";
 import { Separator } from "@/components/ui/separator";
 
-// Updated with actual IPL 2024 March schedule data
+// Updated with actual IPL 2024 May schedule data
 // PredictedWinner, confidence, keyFactors are still placeholders
 const upcomingMatches = [
   {
     team1: "Chennai Super Kings",
-    team2: "Royal Challengers Bengaluru",
+    team2: "Punjab Kings",
     predictedWinner: "Chennai Super Kings", // Placeholder
     confidence: 65, // Placeholder
-    keyFactors: ["Home Advantage", "CSK Spinners", "RCB Top Order"], // Placeholder
-    date: "Mar 22, 2024",
+    keyFactors: ["CSK Home Advantage", "PBKS inconsistency", "Spin factor"], // Placeholder
+    date: "May 1, 2024",
     venue: "MA Chidambaram Stadium, Chennai",
-    team1Logo: "https://picsum.photos/seed/csk24/40/40",
-    team2Logo: "https://picsum.photos/seed/rcb24/40/40",
+    team1Logo: "https://picsum.photos/seed/cskmay1/40/40",
+    team2Logo: "https://picsum.photos/seed/pbksmay1/40/40",
   },
   {
-    team1: "Punjab Kings",
-    team2: "Delhi Capitals",
-    predictedWinner: "Punjab Kings", // Placeholder
-    confidence: 60, // Placeholder
-    keyFactors: ["PBKS Power Hitting", "DC Bowling", "Venue History"], // Placeholder
-    date: "Mar 23, 2024",
-    venue: "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur",
-    team1Logo: "https://picsum.photos/seed/pbks24/40/40",
-    team2Logo: "https://picsum.photos/seed/dc24/40/40",
-  },
-   {
-    team1: "Kolkata Knight Riders",
-    team2: "Sunrisers Hyderabad",
-    predictedWinner: "Kolkata Knight Riders", // Placeholder
-    confidence: 70, // Placeholder
-    keyFactors: ["KKR Home Advantage", "SRH Batting Depth", "Spin Factor"], // Placeholder
-    date: "Mar 23, 2024",
-    venue: "Eden Gardens, Kolkata",
-    team1Logo: "https://picsum.photos/seed/kkr24/40/40",
-    team2Logo: "https://picsum.photos/seed/srh24/40/40",
-  },
-   {
-    team1: "Rajasthan Royals",
-    team2: "Lucknow Super Giants",
+    team1: "Sunrisers Hyderabad",
+    team2: "Rajasthan Royals",
     predictedWinner: "Rajasthan Royals", // Placeholder
     confidence: 68, // Placeholder
-    keyFactors: ["RR Strong Batting", "LSG Pace Attack", "Home Ground"], // Placeholder
-    date: "Mar 24, 2024",
-    venue: "Sawai Mansingh Stadium, Jaipur",
-    team1Logo: "https://picsum.photos/seed/rr24/40/40",
-    team2Logo: "https://picsum.photos/seed/lsg24/40/40",
-  },
-   {
-    team1: "Gujarat Titans",
-    team2: "Mumbai Indians",
-    predictedWinner: "Gujarat Titans", // Placeholder
-    confidence: 62, // Placeholder
-    keyFactors: ["GT Bowling Strength", "MI Experienced Lineup", "Venue Stats"], // Placeholder
-    date: "Mar 24, 2024",
-    venue: "Narendra Modi Stadium, Ahmedabad",
-    team1Logo: "https://picsum.photos/seed/gt24/40/40",
-    team2Logo: "https://picsum.photos/seed/mi24/40/40",
-  },
-   {
-    team1: "Royal Challengers Bengaluru",
-    team2: "Punjab Kings",
-    predictedWinner: "Royal Challengers Bengaluru", // Placeholder
-    confidence: 72, // Placeholder
-    keyFactors: ["RCB Home Ground", "Kohli's Form", "PBKS Bowling"], // Placeholder
-    date: "Mar 25, 2024",
-    venue: "M. Chinnaswamy Stadium, Bengaluru",
-    team1Logo: "https://picsum.photos/seed/rcb24/40/40",
-    team2Logo: "https://picsum.photos/seed/pbks24/40/40",
-  },
-    {
-    team1: "Chennai Super Kings",
-    team2: "Gujarat Titans",
-    predictedWinner: "Chennai Super Kings", // Placeholder
-    confidence: 66, // Placeholder
-    keyFactors: ["CSK at Chepauk", "GT Balanced Squad", "Captaincy"], // Placeholder
-    date: "Mar 26, 2024",
-    venue: "MA Chidambaram Stadium, Chennai",
-    team1Logo: "https://picsum.photos/seed/csk24/40/40",
-    team2Logo: "https://picsum.photos/seed/gt24/40/40",
-  },
-    {
-    team1: "Sunrisers Hyderabad",
-    team2: "Mumbai Indians",
-    predictedWinner: "Mumbai Indians", // Placeholder
-    confidence: 63, // Placeholder
-    keyFactors: ["SRH Home Ground", "MI Explosive Batting", "Pace vs Pace"], // Placeholder
-    date: "Mar 27, 2024",
+    keyFactors: ["RR Consistent Form", "SRH Batting Power", "Pace Attack"], // Placeholder
+    date: "May 2, 2024",
     venue: "Rajiv Gandhi International Stadium, Hyderabad",
-    team1Logo: "https://picsum.photos/seed/srh24/40/40",
-    team2Logo: "https://picsum.photos/seed/mi24/40/40",
+    team1Logo: "https://picsum.photos/seed/srhmay2/40/40",
+    team2Logo: "https://picsum.photos/seed/rrmay2/40/40",
   },
-    {
-    team1: "Rajasthan Royals",
-    team2: "Delhi Capitals",
-    predictedWinner: "Rajasthan Royals", // Placeholder
-    confidence: 69, // Placeholder
-    keyFactors: ["RR Strong Home Record", "DC All-rounders", "Key Player Matchups"], // Placeholder
-    date: "Mar 28, 2024",
-    venue: "Sawai Mansingh Stadium, Jaipur",
-    team1Logo: "https://picsum.photos/seed/rr24/40/40",
-    team2Logo: "https://picsum.photos/seed/dc24/40/40",
-  },
-    {
-    team1: "Royal Challengers Bengaluru",
+   {
+    team1: "Mumbai Indians",
     team2: "Kolkata Knight Riders",
     predictedWinner: "Kolkata Knight Riders", // Placeholder
-    confidence: 61, // Placeholder
-    keyFactors: ["RCB Batting Power", "KKR Spin Trio", "Chinnaswamy Runs"], // Placeholder
-    date: "Mar 29, 2024",
+    confidence: 62, // Placeholder
+    keyFactors: ["MI Home Ground", "KKR All-round Strength", "Spinners Duel"], // Placeholder
+    date: "May 3, 2024",
+    venue: "Wankhede Stadium, Mumbai",
+    team1Logo: "https://picsum.photos/seed/mimay3/40/40",
+    team2Logo: "https://picsum.photos/seed/kkrmay3/40/40",
+  },
+   {
+    team1: "Royal Challengers Bengaluru",
+    team2: "Gujarat Titans",
+    predictedWinner: "Royal Challengers Bengaluru", // Placeholder
+    confidence: 60, // Placeholder
+    keyFactors: ["RCB Batting Depth", "GT Bowling", "Chinnaswamy Factor"], // Placeholder
+    date: "May 4, 2024",
     venue: "M. Chinnaswamy Stadium, Bengaluru",
-    team1Logo: "https://picsum.photos/seed/rcb24/40/40",
-    team2Logo: "https://picsum.photos/seed/kkr24/40/40",
+    team1Logo: "https://picsum.photos/seed/rcbmay4/40/40",
+    team2Logo: "https://picsum.photos/seed/gtmay4/40/40",
+  },
+   {
+    team1: "Punjab Kings",
+    team2: "Chennai Super Kings",
+    predictedWinner: "Chennai Super Kings", // Placeholder
+    confidence: 66, // Placeholder
+    keyFactors: ["CSK Experience", "PBKS Venue (Dharamsala)", "Dew Factor"], // Placeholder
+    date: "May 5, 2024",
+    venue: "HPCA Stadium, Dharamsala",
+    team1Logo: "https://picsum.photos/seed/pbksmay5/40/40",
+    team2Logo: "https://picsum.photos/seed/cskmay5/40/40",
   },
    {
     team1: "Lucknow Super Giants",
-    team2: "Punjab Kings",
-    predictedWinner: "Lucknow Super Giants", // Placeholder
+    team2: "Kolkata Knight Riders",
+    predictedWinner: "Kolkata Knight Riders", // Placeholder
     confidence: 64, // Placeholder
-    keyFactors: ["LSG Home Advantage", "PBKS Batting Depth", "Pace Attack"], // Placeholder
-    date: "Mar 30, 2024",
+    keyFactors: ["KKR Spin Attack", "LSG Home Ground", "Batting Matchup"], // Placeholder
+    date: "May 5, 2024",
     venue: "BRSABV Ekana Cricket Stadium, Lucknow",
-    team1Logo: "https://picsum.photos/seed/lsg24/40/40",
-    team2Logo: "https://picsum.photos/seed/pbks24/40/40",
+    team1Logo: "https://picsum.photos/seed/lsgmay5/40/40",
+    team2Logo: "https://picsum.photos/seed/kkrmay5/40/40",
+  },
+    {
+    team1: "Mumbai Indians",
+    team2: "Sunrisers Hyderabad",
+    predictedWinner: "Mumbai Indians", // Placeholder
+    confidence: 63, // Placeholder
+    keyFactors: ["MI Batting Power", "SRH Pace", "Wankhede Runs"], // Placeholder
+    date: "May 6, 2024",
+    venue: "Wankhede Stadium, Mumbai",
+    team1Logo: "https://picsum.photos/seed/mimay6/40/40",
+    team2Logo: "https://picsum.photos/seed/srhmay6/40/40",
+  },
+    {
+    team1: "Delhi Capitals",
+    team2: "Rajasthan Royals",
+    predictedWinner: "Rajasthan Royals", // Placeholder
+    confidence: 70, // Placeholder
+    keyFactors: ["RR Overall Form", "DC Home Advantage", "Key Player Battles"], // Placeholder
+    date: "May 7, 2024",
+    venue: "Arun Jaitley Stadium, Delhi",
+    team1Logo: "https://picsum.photos/seed/dcmay7/40/40",
+    team2Logo: "https://picsum.photos/seed/rrmay7/40/40",
+  },
+    {
+    team1: "Sunrisers Hyderabad",
+    team2: "Lucknow Super Giants",
+    predictedWinner: "Sunrisers Hyderabad", // Placeholder
+    confidence: 61, // Placeholder
+    keyFactors: ["SRH Batting Aggression", "LSG Bowling", "Hyderabad Pitch"], // Placeholder
+    date: "May 8, 2024",
+    venue: "Rajiv Gandhi International Stadium, Hyderabad",
+    team1Logo: "https://picsum.photos/seed/srhmay8/40/40",
+    team2Logo: "https://picsum.photos/seed/lsgmay8/40/40",
+  },
+    {
+    team1: "Punjab Kings",
+    team2: "Royal Challengers Bengaluru",
+    predictedWinner: "Royal Challengers Bengaluru", // Placeholder
+    confidence: 67, // Placeholder
+    keyFactors: ["RCB Recent Form", "PBKS Need to Win", "Dharamsala Conditions"], // Placeholder
+    date: "May 9, 2024",
+    venue: "HPCA Stadium, Dharamsala",
+    team1Logo: "https://picsum.photos/seed/pbksmay9/40/40",
+    team2Logo: "https://picsum.photos/seed/rcbmay9/40/40",
   },
    {
     team1: "Gujarat Titans",
-    team2: "Sunrisers Hyderabad",
-    predictedWinner: "Gujarat Titans", // Placeholder
-    confidence: 67, // Placeholder
-    keyFactors: ["GT Strong Home Record", "SRH Aggressive Batting", "Bowling Duel"], // Placeholder
-    date: "Mar 31, 2024",
+    team2: "Chennai Super Kings",
+    predictedWinner: "Chennai Super Kings", // Placeholder
+    confidence: 69, // Placeholder
+    keyFactors: ["CSK Consistency", "GT Home Ground", "Bowling Matchup"], // Placeholder
+    date: "May 10, 2024",
     venue: "Narendra Modi Stadium, Ahmedabad",
-    team1Logo: "https://picsum.photos/seed/gt24/40/40",
-    team2Logo: "https://picsum.photos/seed/srh24/40/40",
+    team1Logo: "https://picsum.photos/seed/gtmay10/40/40",
+    team2Logo: "https://picsum.photos/seed/cskmay10/40/40",
+  },
+   {
+    team1: "Kolkata Knight Riders",
+    team2: "Mumbai Indians",
+    predictedWinner: "Kolkata Knight Riders", // Placeholder
+    confidence: 72, // Placeholder
+    keyFactors: ["KKR Home Advantage", "MI Inconsistency", "Eden Gardens Pitch"], // Placeholder
+    date: "May 11, 2024",
+    venue: "Eden Gardens, Kolkata",
+    team1Logo: "https://picsum.photos/seed/kkrmay11/40/40",
+    team2Logo: "https://picsum.photos/seed/mimay11/40/40",
+  },
+   {
+    team1: "Chennai Super Kings",
+    team2: "Rajasthan Royals",
+    predictedWinner: "Rajasthan Royals", // Placeholder
+    confidence: 65, // Placeholder
+    keyFactors: ["RR Table Position", "CSK Home Fortress", "Spin vs Pace"], // Placeholder
+    date: "May 12, 2024",
+    venue: "MA Chidambaram Stadium, Chennai",
+    team1Logo: "https://picsum.photos/seed/cskmay12/40/40",
+    team2Logo: "https://picsum.photos/seed/rrmay12/40/40",
+  },
+   {
+    team1: "Royal Challengers Bengaluru",
+    team2: "Delhi Capitals",
+    predictedWinner: "Royal Challengers Bengaluru", // Placeholder
+    confidence: 68, // Placeholder
+    keyFactors: ["RCB Momentum", "DC Playoff Push", "Chinnaswamy High Score"], // Placeholder
+    date: "May 12, 2024",
+    venue: "M. Chinnaswamy Stadium, Bengaluru",
+    team1Logo: "https://picsum.photos/seed/rcbmay12/40/40",
+    team2Logo: "https://picsum.photos/seed/dcmay12/40/40",
+  },
+   {
+    team1: "Gujarat Titans",
+    team2: "Kolkata Knight Riders",
+    predictedWinner: "Kolkata Knight Riders", // Placeholder
+    confidence: 71, // Placeholder
+    keyFactors: ["KKR Form", "GT Home Pressure", "Top Order Battle"], // Placeholder
+    date: "May 13, 2024",
+    venue: "Narendra Modi Stadium, Ahmedabad",
+    team1Logo: "https://picsum.photos/seed/gtmay13/40/40",
+    team2Logo: "https://picsum.photos/seed/kkrmay13/40/40",
   },
    {
     team1: "Delhi Capitals",
-    team2: "Chennai Super Kings",
-    predictedWinner: "Chennai Super Kings", // Placeholder
-    confidence: 71, // Placeholder
-    keyFactors: ["CSK Consistency", "DC Batting Firepower", "Venue Dynamics (Vizag)"], // Placeholder
-    date: "Mar 31, 2024",
-    venue: "Dr YS Rajasekhara Reddy ACA-VDCA Stadium, Visakhapatnam",
-    team1Logo: "https://picsum.photos/seed/dc24/40/40",
-    team2Logo: "https://picsum.photos/seed/csk24/40/40",
+    team2: "Lucknow Super Giants",
+    predictedWinner: "Delhi Capitals", // Placeholder
+    confidence: 60, // Placeholder
+    keyFactors: ["DC Must Win", "LSG Bowling", "Delhi Pitch"], // Placeholder
+    date: "May 14, 2024",
+    venue: "Arun Jaitley Stadium, Delhi",
+    team1Logo: "https://picsum.photos/seed/dcmay14/40/40",
+    team2Logo: "https://picsum.photos/seed/lsgmay14/40/40",
   },
+  // Add more May matches as needed following the pattern
 ];
+
 
 export default function Home() {
   return (
@@ -163,7 +198,7 @@ export default function Home() {
 
         {/* Upcoming Match Predictions Section */}
         <section>
-          <h2 className="text-xl font-semibold mb-4">Upcoming Matches (IPL 2024 - March)</h2>
+          <h2 className="text-xl font-semibold mb-4">Upcoming Matches (IPL 2024 - May)</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {upcomingMatches.map((match, index) => (
               <MatchPredictionCard key={index} {...match} />

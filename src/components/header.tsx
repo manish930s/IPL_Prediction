@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"; // Import SheetHeader and SheetTitle
 import { Menu, ShieldCheck } from "lucide-react"; // Using ShieldCheck as a cricket-related icon placeholder
 
 export function Header() {
@@ -36,6 +36,10 @@ export function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="pt-10 pr-0">
+            {/* Add SheetHeader and SheetTitle for accessibility */}
+            <SheetHeader className="sr-only"> {/* Hide visually but keep for screen readers */}
+              <SheetTitle>Navigation Menu</SheetTitle>
+            </SheetHeader>
             <Link href="/" className="flex items-center space-x-2 mb-6 px-6">
               <ShieldCheck className="h-6 w-6 text-primary" />
               <span className="font-bold">Cricket Oracle</span>

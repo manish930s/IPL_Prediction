@@ -21,7 +21,7 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["Home Advantage (Bengaluru)", "CSK Batting Depth", "Pace vs Spin"], // Placeholder
     date: "May 3, 2025 19:30",
     venue: "M. Chinnaswamy Stadium, Bengaluru",
-    team1Logo: "https://picsum.photos/seed/rcb-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/NVAlbtIyB81740555172aFPMviEPyJ1710927747rcb.png/40/40", // Updated placeholder
     team2Logo: "https://picsum.photos/seed/csk-logo/40/40", // Updated placeholder
   },
   {

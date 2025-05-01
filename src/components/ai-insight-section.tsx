@@ -74,8 +74,11 @@ export function AIInsightSection() {
     } catch (error: any) {
       console.error("Error generating explanation:", error);
       let description = "Failed to generate explanation. Please try again.";
-      if (error.message && error.message.includes("503 Service Unavailable")) {
-        description = "The AI model is currently overloaded. Please try again later.";
+      // Handle potential 503 error specifically
+      if (error.message && (error.message.includes("503") || error.status === 503)) {
+        description = "The AI model is currently overloaded or unavailable. Please try again later.";
+      } else if (error.message) {
+        description = `Failed to generate explanation: ${error.message.substring(0, 100)}`; // Truncate long messages
       }
       toast({
         variant: "destructive",
@@ -97,8 +100,11 @@ export function AIInsightSection() {
     } catch (error: any) {
         console.error("Error generating summary:", error);
         let description = "Failed to generate summary. Please try again.";
-        if (error.message && error.message.includes("503 Service Unavailable")) {
-          description = "The AI model is currently overloaded. Please try again later.";
+        // Handle potential 503 error specifically
+        if (error.message && (error.message.includes("503") || error.status === 503)) {
+            description = "The AI model is currently overloaded or unavailable. Please try again later.";
+        } else if (error.message) {
+             description = `Failed to generate summary: ${error.message.substring(0, 100)}`; // Truncate long messages
         }
         toast({
             variant: "destructive",
@@ -112,11 +118,12 @@ export function AIInsightSection() {
 
 
   return (
+    // Use grid-cols-1 by default, md:grid-cols-2 for medium screens and up
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Sparkles className="text-primary" />
+          <CardTitle className="flex items-center gap-2 text-lg"> {/* Consistent title size */}
+            <Sparkles className="text-primary h-5 w-5" /> {/* Ensure icon size */}
             Explain Match Prediction
           </CardTitle>
           <CardDescription>
@@ -197,8 +204,8 @@ export function AIInsightSection() {
 
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Sparkles className="text-primary" />
+          <CardTitle className="flex items-center gap-2 text-lg"> {/* Consistent title size */}
+            <Sparkles className="text-primary h-5 w-5" /> {/* Ensure icon size */}
             Generate Match Summary
           </CardTitle>
           <CardDescription>

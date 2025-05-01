@@ -19,13 +19,13 @@ interface MatchPredictionCardProps {
 
 export function MatchPredictionCard({
   team1,
-  team1Logo, // No default placeholder
+  team1Logo,
   team2,
-  team2Logo, // No default placeholder
+  team2Logo,
   predictedWinner,
   confidence,
   keyFactors,
-  date, // Now expects formatted date
+  date,
   venue,
 }: MatchPredictionCardProps) {
   const isTeam1PredictedWinner = team1 === predictedWinner;
@@ -66,16 +66,17 @@ export function MatchPredictionCard({
   return (
     <Card className="shadow-md hover:shadow-lg transition-shadow duration-200 flex flex-col h-full">
       <CardHeader>
-        <CardTitle className="text-lg flex justify-between items-center">
-          <span className="truncate flex-1 mr-2">{team1} vs {team2}</span>
+        <CardTitle className="text-lg flex justify-between items-center gap-2">
+          <span className="truncate flex-1">{team1} vs {team2}</span>
           {/* Display the pre-formatted date */}
           <span className="text-xs font-normal text-muted-foreground flex-shrink-0">{date}</span>
         </CardTitle>
         <CardDescription className="truncate">{venue}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col flex-grow">
-        <div className="flex justify-around items-start mb-4 text-center">
-          <div className="flex flex-col items-center w-1/3">
+        <div className="flex justify-around items-start mb-4 text-center gap-2">
+          {/* Team 1 Section - Made more flexible */}
+          <div className="flex flex-col items-center flex-1 min-w-0"> {/* Use flex-1 and min-w-0 for flexible width and text wrapping */}
              {/* Use next/image and add data-ai-hint */}
              {team1Logo ? (
                  <Image
@@ -89,11 +90,14 @@ export function MatchPredictionCard({
              ) : (
                  <div className="w-10 h-10 mb-1 rounded-full bg-muted flex items-center justify-center text-muted-foreground text-xs">?</div> // Placeholder if no logo
              )}
-            <span className="font-medium text-sm break-words">{team1}</span>
+            <span className="font-medium text-sm break-words w-full">{team1}</span> {/* Ensure text can wrap */}
              {isTeam1PredictedWinner && <Trophy className="w-4 h-4 text-accent mt-1 flex-shrink-0" aria-label="Predicted Winner"/>}
           </div>
-          <span className="text-muted-foreground font-bold text-xl pt-4">vs</span>
-          <div className="flex flex-col items-center w-1/3">
+
+          <span className="text-muted-foreground font-bold text-xl pt-4 px-1">vs</span>
+
+          {/* Team 2 Section - Made more flexible */}
+          <div className="flex flex-col items-center flex-1 min-w-0"> {/* Use flex-1 and min-w-0 */}
              {/* Use next/image and add data-ai-hint */}
             {team2Logo ? (
                  <Image
@@ -107,7 +111,7 @@ export function MatchPredictionCard({
              ) : (
                   <div className="w-10 h-10 mb-1 rounded-full bg-muted flex items-center justify-center text-muted-foreground text-xs">?</div> // Placeholder if no logo
              )}
-            <span className="font-medium text-sm break-words">{team2}</span>
+            <span className="font-medium text-sm break-words w-full">{team2}</span> {/* Ensure text can wrap */}
             {isTeam2PredictedWinner && <Trophy className="w-4 h-4 text-accent mt-1 flex-shrink-0" aria-label="Predicted Winner"/>}
           </div>
         </div>

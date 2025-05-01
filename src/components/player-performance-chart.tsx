@@ -1,3 +1,4 @@
+
 "use client";
 
 import { TrendingUp } from "lucide-react";
@@ -55,18 +56,45 @@ export function PlayerPerformanceChart({ playerName }: PlayerPerformanceChartPro
   return (
     <Card className="shadow-md">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
+        <CardTitle className="flex items-center gap-2 text-lg md:text-xl"> {/* Adjusted font size */}
           <TrendingUp className="h-5 w-5 text-primary" />
           {playerName} - Recent Performance
         </CardTitle>
         <CardDescription>Last 5 Matches</CardDescription>
       </CardHeader>
       <CardContent>
+        {/* Use grid-cols-1 by default, adjust for larger screens */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Runs Chart */}
-            <div>
+            <div className="flex flex-col items-center"> {/* Centering content */}
                 <h4 className="text-sm font-semibold mb-2 text-center">Runs Scored</h4>
-                <ChartContainer config={runsChartConfig} className="h-[200px] w-full">
+                <ChartContainer config={runsChartConfig} className="h-[200px] w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none"> {/* Responsive max-width */}
+                    <ResponsiveContainer width="100%" height="100%">
+                        <BarChart accessibilityLayer data={chartData}>
+                            <CartesianGrid vertical={false} />
+                            <XAxis
+                            dataKey="match"
+                            tickLine={false}
+                            tickMargin={10}
+                            axisLine={false}
+                            tickFormatter={(value) => value.slice(0, 3)} // Shorten labels if needed
+                            />
+                            <YAxis />
+                            <Tooltip
+                            cursor={false}
+                            content={<ChartTooltipContent indicator="dashed" />}
+                            />
+                            <Bar dataKey="runs" fill="var(--color-runs)" radius={4} />
+                        </BarChart>
+                     </ResponsiveContainer>
+                </ChartContainer>
+             </div>
+
+            {/* Wickets Chart */}
+             <div className="flex flex-col items-center"> {/* Centering content */}
+                <h4 className="text-sm font-semibold mb-2 text-center">Wickets Taken</h4>
+                <ChartContainer config={wicketsChartConfig} className="h-[200px] w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none"> {/* Responsive max-width */}
+                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart accessibilityLayer data={chartData}>
                         <CartesianGrid vertical={false} />
                         <XAxis
@@ -74,61 +102,41 @@ export function PlayerPerformanceChart({ playerName }: PlayerPerformanceChartPro
                         tickLine={false}
                         tickMargin={10}
                         axisLine={false}
-                        tickFormatter={(value) => value.slice(0, 3)} // Shorten labels if needed
+                        tickFormatter={(value) => value.slice(0, 3)}
                         />
-                         <YAxis />
+                        <YAxis />
                         <Tooltip
                         cursor={false}
                         content={<ChartTooltipContent indicator="dashed" />}
                         />
-                        <Bar dataKey="runs" fill="var(--color-runs)" radius={4} />
+                        <Bar dataKey="wickets" fill="var(--color-wickets)" radius={4} />
                     </BarChart>
-                </ChartContainer>
-             </div>
-
-            {/* Wickets Chart */}
-             <div>
-                <h4 className="text-sm font-semibold mb-2 text-center">Wickets Taken</h4>
-                <ChartContainer config={wicketsChartConfig} className="h-[200px] w-full">
-                <BarChart accessibilityLayer data={chartData}>
-                    <CartesianGrid vertical={false} />
-                    <XAxis
-                    dataKey="match"
-                    tickLine={false}
-                    tickMargin={10}
-                    axisLine={false}
-                    tickFormatter={(value) => value.slice(0, 3)}
-                    />
-                     <YAxis />
-                    <Tooltip
-                    cursor={false}
-                    content={<ChartTooltipContent indicator="dashed" />}
-                    />
-                    <Bar dataKey="wickets" fill="var(--color-wickets)" radius={4} />
-                </BarChart>
+                 </ResponsiveContainer>
                 </ChartContainer>
             </div>
 
              {/* Economy Chart */}
-             <div>
+             <div className="flex flex-col items-center"> {/* Centering content */}
                 <h4 className="text-sm font-semibold mb-2 text-center">Economy Rate</h4>
-                <ChartContainer config={economyChartConfig} className="h-[200px] w-full">
-                <BarChart accessibilityLayer data={chartData.filter(d => d.economy > 0)} > {/* Filter out 0 economy */}
-                    <CartesianGrid vertical={false} />
-                    <XAxis
-                    dataKey="match"
-                    tickLine={false}
-                    tickMargin={10}
-                    axisLine={false}
-                    tickFormatter={(value) => value.slice(0, 3)}
-                    />
-                    <YAxis domain={['dataMin - 1', 'dataMax + 1']} />
-                    <Tooltip
-                    cursor={false}
-                    content={<ChartTooltipContent indicator="dashed" />}
-                    />
-                    <Bar dataKey="economy" fill="var(--color-economy)" radius={4} />
-                </BarChart>
+                <ChartContainer config={economyChartConfig} className="h-[200px] w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-none"> {/* Responsive max-width */}
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart accessibilityLayer data={chartData.filter(d => d.economy > 0)} > {/* Filter out 0 economy */}
+                        <CartesianGrid vertical={false} />
+                        <XAxis
+                        dataKey="match"
+                        tickLine={false}
+                        tickMargin={10}
+                        axisLine={false}
+                        tickFormatter={(value) => value.slice(0, 3)}
+                        />
+                        <YAxis domain={['dataMin - 1', 'dataMax + 1']} />
+                        <Tooltip
+                        cursor={false}
+                        content={<ChartTooltipContent indicator="dashed" />}
+                        />
+                        <Bar dataKey="economy" fill="var(--color-economy)" radius={4} />
+                    </BarChart>
+                </ResponsiveContainer>
                 </ChartContainer>
             </div>
         </div>

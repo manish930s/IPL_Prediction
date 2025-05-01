@@ -1,4 +1,5 @@
 
+
 import { Header } from "@/components/header";
 import { PlayerPerformanceChart } from "@/components/player-performance-chart";
 import { AIInsightSection } from "@/components/ai-insight-section";
@@ -19,7 +20,7 @@ const allUpcomingMatches: MatchData[] = [
     predictedWinner: "Royal Challengers Bengaluru", // Placeholder
     confidence: 67, // Placeholder
     keyFactors: ["Home Advantage (Bengaluru)", "CSK Batting Depth", "Pace vs Spin"], // Placeholder
-    date: "May 3, 2025 19:30",
+    date: "May 03, 2025 19:30", // Using MM DD, YYYY format for consistency
     venue: "M. Chinnaswamy Stadium, Bengaluru",
     team1Logo: "https://scores.iplt20.com/ipl/teamlogos/NVAlbtIyB81740555172aFPMviEPyJ1710927747rcb.png", // Correct RCB Logo URL
     team2Logo: "https://scores.iplt20.com/ipl/teamlogos/CSK.png", // CSK Logo URL
@@ -30,7 +31,7 @@ const allUpcomingMatches: MatchData[] = [
     predictedWinner: "Kolkata Knight Riders", // Placeholder
     confidence: 65, // Placeholder
     keyFactors: ["KKR Spin Attack", "RR Top Order", "Eden Gardens Pitch"], // Placeholder
-    date: "May 4, 2025 15:30",
+    date: "May 04, 2025 15:30",
     venue: "Eden Gardens, Kolkata",
     team1Logo: "https://scores.iplt20.com/ipl/teamlogos/KKR.png", // KKR Logo URL
     team2Logo: "https://scores.iplt20.com/ipl/teamlogos/RR.png", // RR Logo URL
@@ -41,7 +42,7 @@ const allUpcomingMatches: MatchData[] = [
     predictedWinner: "Lucknow Super Giants", // Placeholder
     confidence: 63, // Placeholder
     keyFactors: ["LSG All-rounders", "PBKS Power Hitting", "Dharamsala Conditions"], // Placeholder
-    date: "May 4, 2025 19:30",
+    date: "May 04, 2025 19:30",
     venue: "HPCA Stadium, Dharamsala",
     team1Logo: "https://scores.iplt20.com/ipl/teamlogos/PBKS.png", // PBKS Logo URL
     team2Logo: "https://scores.iplt20.com/ipl/teamlogos/LSG.png", // LSG Logo URL
@@ -52,7 +53,7 @@ const allUpcomingMatches: MatchData[] = [
     predictedWinner: "Sunrisers Hyderabad", // Placeholder
     confidence: 66, // Placeholder
     keyFactors: ["SRH Batting Firepower", "DC Bowling Attack", "Hyderabad Pitch"], // Placeholder
-    date: "May 5, 2025 19:30",
+    date: "May 05, 2025 19:30",
     venue: "Rajiv Gandhi International Stadium, Hyderabad",
     team1Logo: "https://scores.iplt20.com/ipl/teamlogos/SRH.png", // SRH Logo URL
     team2Logo: "https://scores.iplt20.com/ipl/teamlogos/DC.png", // DC Logo URL
@@ -63,7 +64,7 @@ const allUpcomingMatches: MatchData[] = [
     predictedWinner: "Mumbai Indians", // Placeholder
     confidence: 70, // Placeholder
     keyFactors: ["MI Home Advantage", "GT Bowling Strength", "Wankhede Conditions"], // Placeholder
-    date: "May 6, 2025 19:30",
+    date: "May 06, 2025 19:30",
     venue: "Wankhede Stadium, Mumbai",
     team1Logo: "https://scores.iplt20.com/ipl/teamlogos/MI.png", // MI Logo URL
     team2Logo: "https://scores.iplt20.com/ipl/teamlogos/GT.png", // GT Logo URL
@@ -74,7 +75,7 @@ const allUpcomingMatches: MatchData[] = [
     predictedWinner: "Chennai Super Kings", // Placeholder
     confidence: 68, // Placeholder
     keyFactors: ["CSK Spin Dominance", "KKR Batting Form", "Kolkata Pitch"], // Placeholder
-    date: "May 7, 2025 19:30",
+    date: "May 07, 2025 19:30",
     venue: "Eden Gardens, Kolkata",
     team1Logo: "https://scores.iplt20.com/ipl/teamlogos/KKR.png", // KKR Logo URL
     team2Logo: "https://scores.iplt20.com/ipl/teamlogos/CSK.png", // CSK Logo URL
@@ -85,7 +86,7 @@ const allUpcomingMatches: MatchData[] = [
     predictedWinner: "Delhi Capitals", // Placeholder
     confidence: 64, // Placeholder
     keyFactors: ["DC Batting Depth", "PBKS Inconsistency", "Dharamsala Conditions"], // Placeholder
-    date: "May 8, 2025 19:30",
+    date: "May 08, 2025 19:30",
     venue: "HPCA Stadium, Dharamsala",
     team1Logo: "https://scores.iplt20.com/ipl/teamlogos/PBKS.png", // PBKS Logo URL
     team2Logo: "https://scores.iplt20.com/ipl/teamlogos/DC.png", // DC Logo URL
@@ -96,7 +97,7 @@ const allUpcomingMatches: MatchData[] = [
     predictedWinner: "Lucknow Super Giants", // Placeholder
     confidence: 66, // Placeholder
     keyFactors: ["LSG Home Ground", "RCB Star Players", "Spin vs Pace"], // Placeholder
-    date: "May 9, 2025 19:30",
+    date: "May 09, 2025 19:30",
     venue: "BRSABV Ekana Cricket Stadium, Lucknow",
     team1Logo: "https://scores.iplt20.com/ipl/teamlogos/LSG.png", // LSG Logo URL
     team2Logo: "https://scores.iplt20.com/ipl/teamlogos/NVAlbtIyB81740555172aFPMviEPyJ1710927747rcb.png", // Correct RCB Logo URL
@@ -231,8 +232,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["Qualifier 1", "High Stakes"],
     date: "May 20, 2025 19:30",
     venue: "Rajiv Gandhi International Stadium, Hyderabad",
-    team1Logo: "https://picsum.photos/seed/tbc-logo/40/40", // Generic TBC placeholder
-    team2Logo: "https://picsum.photos/seed/tbc-logo/40/40", // Generic TBC placeholder
+    team1Logo: undefined, // No logo for TBC
+    team2Logo: undefined, // No logo for TBC
   },
   {
     team1: "TBC", // Placeholder
@@ -242,8 +243,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["Eliminator", "Must Win"],
     date: "May 21, 2025 19:30",
     venue: "Rajiv Gandhi International Stadium, Hyderabad",
-    team1Logo: "https://picsum.photos/seed/tbc-logo/40/40", // Generic TBC placeholder
-    team2Logo: "https://picsum.photos/seed/tbc-logo/40/40", // Generic TBC placeholder
+    team1Logo: undefined, // No logo for TBC
+    team2Logo: undefined, // No logo for TBC
   },
   {
     team1: "TBC", // Placeholder
@@ -253,8 +254,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["Qualifier 2", "Final Spot"],
     date: "May 23, 2025 19:30",
     venue: "Eden Gardens, Kolkata",
-    team1Logo: "https://picsum.photos/seed/tbc-logo/40/40", // Generic TBC placeholder
-    team2Logo: "https://picsum.photos/seed/tbc-logo/40/40", // Generic TBC placeholder
+    team1Logo: undefined, // No logo for TBC
+    team2Logo: undefined, // No logo for TBC
   },
    {
     team1: "TBC", // Placeholder
@@ -264,8 +265,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["Final", "IPL Trophy"],
     date: "May 25, 2025 19:30",
     venue: "Eden Gardens, Kolkata",
-    team1Logo: "https://picsum.photos/seed/tbc-logo/40/40", // Generic TBC placeholder
-    team2Logo: "https://picsum.photos/seed/tbc-logo/40/40", // Generic TBC placeholder
+    team1Logo: undefined, // No logo for TBC
+    team2Logo: undefined, // No logo for TBC
   },
 ];
 
@@ -274,7 +275,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Header />
-      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6 lg:p-8"> {/* Adjusted padding for medium/large screens */}
         <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
           IPL Match Predictions Dashboard
         </h1>

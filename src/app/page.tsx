@@ -10,7 +10,7 @@ import Image from 'next/image'; // Import Image for potential use if needed dire
 // NOTE: The official IPL 2025 schedule has not been released.
 // This data is purely hypothetical for demonstration purposes based on the user's input.
 // PredictedWinner, confidence, keyFactors are placeholders.
-// Logos are updated to descriptive placeholders with hints.
+// Official Logos are used where available.
 // Time information is included for filtering.
 const allUpcomingMatches: MatchData[] = [
    {
@@ -21,8 +21,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["Home Advantage (Bengaluru)", "CSK Batting Depth", "Pace vs Spin"], // Placeholder
     date: "May 3, 2025 19:30",
     venue: "M. Chinnaswamy Stadium, Bengaluru",
-    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/NVAlbtIyB81740555172aFPMviEPyJ1710927747rcb.png/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/csk-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/NVAlbtIyB81740555172aFPMviEPyJ1710927747rcb.png", // Correct RCB Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/CSK.png", // CSK Logo URL
   },
   {
     team1: "Kolkata Knight Riders",
@@ -32,8 +32,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["KKR Spin Attack", "RR Top Order", "Eden Gardens Pitch"], // Placeholder
     date: "May 4, 2025 15:30",
     venue: "Eden Gardens, Kolkata",
-    team1Logo: "https://picsum.photos/seed/kkr-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/rr-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/KKR.png", // KKR Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/RR.png", // RR Logo URL
   },
   {
     team1: "Punjab Kings",
@@ -43,8 +43,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["LSG All-rounders", "PBKS Power Hitting", "Dharamsala Conditions"], // Placeholder
     date: "May 4, 2025 19:30",
     venue: "HPCA Stadium, Dharamsala",
-    team1Logo: "https://picsum.photos/seed/pbks-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/lsg-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/PBKS.png", // PBKS Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/LSG.png", // LSG Logo URL
   },
   {
     team1: "Sunrisers Hyderabad",
@@ -54,8 +54,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["SRH Batting Firepower", "DC Bowling Attack", "Hyderabad Pitch"], // Placeholder
     date: "May 5, 2025 19:30",
     venue: "Rajiv Gandhi International Stadium, Hyderabad",
-    team1Logo: "https://picsum.photos/seed/srh-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/dc-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/SRH.png", // SRH Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/DC.png", // DC Logo URL
   },
   {
     team1: "Mumbai Indians",
@@ -65,8 +65,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["MI Home Advantage", "GT Bowling Strength", "Wankhede Conditions"], // Placeholder
     date: "May 6, 2025 19:30",
     venue: "Wankhede Stadium, Mumbai",
-    team1Logo: "https://picsum.photos/seed/mi-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/gt-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/MI.png", // MI Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/GT.png", // GT Logo URL
   },
   {
     team1: "Kolkata Knight Riders",
@@ -76,8 +76,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["CSK Spin Dominance", "KKR Batting Form", "Kolkata Pitch"], // Placeholder
     date: "May 7, 2025 19:30",
     venue: "Eden Gardens, Kolkata",
-    team1Logo: "https://picsum.photos/seed/kkr-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/csk-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/KKR.png", // KKR Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/CSK.png", // CSK Logo URL
   },
     {
     team1: "Punjab Kings",
@@ -87,8 +87,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["DC Batting Depth", "PBKS Inconsistency", "Dharamsala Conditions"], // Placeholder
     date: "May 8, 2025 19:30",
     venue: "HPCA Stadium, Dharamsala",
-    team1Logo: "https://picsum.photos/seed/pbks-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/dc-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/PBKS.png", // PBKS Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/DC.png", // DC Logo URL
   },
   {
     team1: "Lucknow Super Giants",
@@ -98,8 +98,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["LSG Home Ground", "RCB Star Players", "Spin vs Pace"], // Placeholder
     date: "May 9, 2025 19:30",
     venue: "BRSABV Ekana Cricket Stadium, Lucknow",
-    team1Logo: "https://picsum.photos/seed/lsg-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/rcb-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/LSG.png", // LSG Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/NVAlbtIyB81740555172aFPMviEPyJ1710927747rcb.png", // Correct RCB Logo URL
   },
   {
     team1: "Sunrisers Hyderabad",
@@ -109,8 +109,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["SRH Aggressive Opening", "KKR Middle Order", "Hyderabad Pitch"], // Placeholder
     date: "May 10, 2025 19:30",
     venue: "Rajiv Gandhi International Stadium, Hyderabad",
-    team1Logo: "https://picsum.photos/seed/srh-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/kkr-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/SRH.png", // SRH Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/KKR.png", // KKR Logo URL
   },
   {
     team1: "Punjab Kings",
@@ -120,8 +120,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["MI Batting Power", "PBKS Bowling", "Dharamsala Pitch"], // Placeholder
     date: "May 11, 2025 15:30",
     venue: "HPCA Stadium, Dharamsala",
-    team1Logo: "https://picsum.photos/seed/pbks-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/mi-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/PBKS.png", // PBKS Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/MI.png", // MI Logo URL
   },
   {
     team1: "Delhi Capitals",
@@ -131,8 +131,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["GT Bowling Attack", "DC Young Talent", "Delhi Pitch"], // Placeholder
     date: "May 11, 2025 19:30",
     venue: "Arun Jaitley Stadium, Delhi",
-    team1Logo: "https://picsum.photos/seed/dc-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/gt-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/DC.png", // DC Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/GT.png", // GT Logo URL
   },
    {
     team1: "Chennai Super Kings",
@@ -142,8 +142,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["CSK Home Advantage (Chepauk)", "RR Strong Finishers", "Spin Factor"], // Placeholder
     date: "May 12, 2025 19:30",
     venue: "MA Chidambaram Stadium, Chennai",
-    team1Logo: "https://picsum.photos/seed/csk-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/rr-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/CSK.png", // CSK Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/RR.png", // RR Logo URL
   },
   {
     team1: "Royal Challengers Bengaluru",
@@ -153,8 +153,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["RCB Batting Lineup", "SRH Pace Attack", "Bengaluru Pitch"], // Placeholder
     date: "May 13, 2025 19:30",
     venue: "M. Chinnaswamy Stadium, Bengaluru",
-    team1Logo: "https://picsum.photos/seed/rcb-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/srh-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/NVAlbtIyB81740555172aFPMviEPyJ1710927747rcb.png", // Correct RCB Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/SRH.png", // SRH Logo URL
   },
   {
     team1: "Gujarat Titans",
@@ -164,8 +164,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["GT Balanced Squad", "LSG All-round Prowess", "Ahmedabad Conditions"], // Placeholder
     date: "May 14, 2025 19:30",
     venue: "Narendra Modi Stadium, Ahmedabad",
-    team1Logo: "https://picsum.photos/seed/gt-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/lsg-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/GT.png", // GT Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/LSG.png", // LSG Logo URL
   },
   {
     team1: "Mumbai Indians",
@@ -175,8 +175,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["MI Experience", "DC Fearless Cricket", "Wankhede Pitch"], // Placeholder
     date: "May 15, 2025 19:30",
     venue: "Wankhede Stadium, Mumbai",
-    team1Logo: "https://picsum.photos/seed/mi-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/dc-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/MI.png", // MI Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/DC.png", // DC Logo URL
   },
   {
     team1: "Rajasthan Royals",
@@ -186,8 +186,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["RR Home Advantage (Jaipur)", "PBKS Batting Power", "Pitch Conditions"], // Placeholder
     date: "May 16, 2025 19:30",
     venue: "Sawai Mansingh Stadium, Jaipur",
-    team1Logo: "https://picsum.photos/seed/rr-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/pbks-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/RR.png", // RR Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/PBKS.png", // PBKS Logo URL
   },
    {
     team1: "Royal Challengers Bengaluru",
@@ -197,8 +197,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["RCB Batting Might", "KKR Spin Duo", "Bengaluru High Scoring"], // Placeholder
     date: "May 17, 2025 19:30",
     venue: "M. Chinnaswamy Stadium, Bengaluru",
-    team1Logo: "https://picsum.photos/seed/rcb-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/kkr-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/NVAlbtIyB81740555172aFPMviEPyJ1710927747rcb.png", // Correct RCB Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/KKR.png", // KKR Logo URL
   },
   {
     team1: "Gujarat Titans",
@@ -208,8 +208,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["GT Home Ground", "CSK Experience", "Key Player Matchups"], // Placeholder
     date: "May 18, 2025 15:30",
     venue: "Narendra Modi Stadium, Ahmedabad",
-    team1Logo: "https://picsum.photos/seed/gt-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/csk-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/GT.png", // GT Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/CSK.png", // CSK Logo URL
   },
    {
     team1: "Lucknow Super Giants",
@@ -219,8 +219,8 @@ const allUpcomingMatches: MatchData[] = [
     keyFactors: ["LSG Balanced Team", "SRH Aggressive Batting", "Lucknow Pitch"], // Placeholder
     date: "May 18, 2025 19:30",
     venue: "BRSABV Ekana Cricket Stadium, Lucknow",
-    team1Logo: "https://picsum.photos/seed/lsg-logo/40/40", // Updated placeholder
-    team2Logo: "https://picsum.photos/seed/srh-logo/40/40", // Updated placeholder
+    team1Logo: "https://scores.iplt20.com/ipl/teamlogos/LSG.png", // LSG Logo URL
+    team2Logo: "https://scores.iplt20.com/ipl/teamlogos/SRH.png", // SRH Logo URL
   },
    // Note: Playoff matches use TBC placeholders
   {

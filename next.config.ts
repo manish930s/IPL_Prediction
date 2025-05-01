@@ -19,9 +19,9 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'scores.iplt20.com', // Added to allow IPL team logos
+        hostname: 'scores.iplt20.com', // Ensure this hostname is present and correct
         port: '',
-        pathname: '/**',
+        pathname: '/**', // Allows any path under this hostname
       },
     ],
   },

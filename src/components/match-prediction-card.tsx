@@ -19,9 +19,9 @@ interface MatchPredictionCardProps {
 
 export function MatchPredictionCard({
   team1,
-  team1Logo = "https://picsum.photos/seed/default-team1-logo/40/40", // Default placeholder with hint
+  team1Logo, // No default placeholder
   team2,
-  team2Logo = "https://picsum.photos/seed/default-team2-logo/40/40", // Default placeholder with hint
+  team2Logo, // No default placeholder
   predictedWinner,
   confidence,
   keyFactors,
@@ -32,11 +32,23 @@ export function MatchPredictionCard({
   const isTeam2PredictedWinner = team2 === predictedWinner;
 
   // Helper function to generate AI hint based on team name
-  const getAiHint = (teamName: string): string => {
-    // Create a simple keyword hint from the team name
+  const getAiHint = (teamName: string, logoUrl?: string): string => {
+     // Prioritize getting hint from logo URL if available and contains team name part
+     if (logoUrl && logoUrl.includes('teamlogos')) {
+        const parts = logoUrl.split('/');
+        const filename = parts[parts.length - 1];
+        // Handle specific RCB logo filename format
+        if (filename.includes('rcb.png')) return 'rcb ipl logo';
+        const teamAbbr = filename.split('.')[0]; // Extract abbreviation before .png
+        if (teamAbbr && teamAbbr.length <= 4) { // Assume valid abbreviations are short
+            return `${teamAbbr.toLowerCase()} ipl logo`;
+        }
+    }
+
+    // Fallback to team name based hint generation
     const hint = teamName
       .toLowerCase()
-      .replace(/royal challengers/g, 'rcb') // Abbreviate long names
+      .replace(/royal challengers bengaluru/g, 'rcb') // Corrected abbreviation
       .replace(/chennai super kings/g, 'csk')
       .replace(/kolkata knight riders/g, 'kkr')
       .replace(/rajasthan royals/g, 'rr')
@@ -65,28 +77,36 @@ export function MatchPredictionCard({
         <div className="flex justify-around items-start mb-4 text-center">
           <div className="flex flex-col items-center w-1/3">
              {/* Use next/image and add data-ai-hint */}
-             <Image
-                src={team1Logo}
-                alt={`${team1} Logo`}
-                width={40}
-                height={40}
-                className="mb-1 rounded-full object-contain bg-gray-200" // Added background for potentially transparent logos
-                data-ai-hint={getAiHint(team1)} // Add AI hint
-             />
+             {team1Logo ? (
+                 <Image
+                    src={team1Logo}
+                    alt={`${team1} Logo`}
+                    width={40}
+                    height={40}
+                    className="mb-1 rounded-full object-contain bg-gray-200" // Added background for potentially transparent logos
+                    data-ai-hint={getAiHint(team1, team1Logo)} // Pass logo URL to hint function
+                 />
+             ) : (
+                 <div className="w-10 h-10 mb-1 rounded-full bg-muted flex items-center justify-center text-muted-foreground text-xs">?</div> // Placeholder if no logo
+             )}
             <span className="font-medium text-sm break-words">{team1}</span>
              {isTeam1PredictedWinner && <Trophy className="w-4 h-4 text-accent mt-1 flex-shrink-0" aria-label="Predicted Winner"/>}
           </div>
           <span className="text-muted-foreground font-bold text-xl pt-4">vs</span>
           <div className="flex flex-col items-center w-1/3">
              {/* Use next/image and add data-ai-hint */}
-             <Image
-                src={team2Logo}
-                alt={`${team2} Logo`}
-                width={40}
-                height={40}
-                className="mb-1 rounded-full object-contain bg-gray-200" // Added background for potentially transparent logos
-                data-ai-hint={getAiHint(team2)} // Add AI hint
-             />
+            {team2Logo ? (
+                 <Image
+                    src={team2Logo}
+                    alt={`${team2} Logo`}
+                    width={40}
+                    height={40}
+                    className="mb-1 rounded-full object-contain bg-gray-200" // Added background for potentially transparent logos
+                    data-ai-hint={getAiHint(team2, team2Logo)} // Pass logo URL to hint function
+                 />
+             ) : (
+                  <div className="w-10 h-10 mb-1 rounded-full bg-muted flex items-center justify-center text-muted-foreground text-xs">?</div> // Placeholder if no logo
+             )}
             <span className="font-medium text-sm break-words">{team2}</span>
             {isTeam2PredictedWinner && <Trophy className="w-4 h-4 text-accent mt-1 flex-shrink-0" aria-label="Predicted Winner"/>}
           </div>
@@ -98,7 +118,7 @@ export function MatchPredictionCard({
           <h4 className="text-sm font-semibold mb-2">Prediction</h4>
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-primary flex-shrink-0" />
-            <span className="font-medium truncate flex-1">{predictedWinner} to win</span>
+            <span className="font-medium truncate flex-1">{predictedWinner === "TBC" ? "To Be Confirmed" : `${predictedWinner} to win`}</span>
             {confidence !== undefined && (
               <Badge variant={confidence > 70 ? "default" : "secondary"} className="ml-auto bg-primary text-primary-foreground flex-shrink-0">
                 {confidence}% Conf.

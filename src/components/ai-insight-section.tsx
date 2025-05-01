@@ -71,12 +71,16 @@ export function AIInsightSection() {
       const result = await explainMatchPrediction(values);
       setExplanationResult(result.explanation);
       toast({ title: "Explanation Generated", description: "AI explanation successfully generated." });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error generating explanation:", error);
+      let description = "Failed to generate explanation. Please try again.";
+      if (error.message && error.message.includes("503 Service Unavailable")) {
+        description = "The AI model is currently overloaded. Please try again later.";
+      }
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Failed to generate explanation. Please try again.",
+        title: "Error Generating Explanation",
+        description: description,
       });
     } finally {
       setExplanationLoading(false);
@@ -90,12 +94,16 @@ export function AIInsightSection() {
         const result = await generateMatchSummary(values);
         setSummaryResult(result.summary);
         toast({ title: "Summary Generated", description: "AI summary successfully generated." });
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error generating summary:", error);
+        let description = "Failed to generate summary. Please try again.";
+        if (error.message && error.message.includes("503 Service Unavailable")) {
+          description = "The AI model is currently overloaded. Please try again later.";
+        }
         toast({
             variant: "destructive",
-            title: "Error",
-            description: "Failed to generate summary. Please try again.",
+            title: "Error Generating Summary",
+            description: description,
         });
     } finally {
         setSummaryLoading(false);

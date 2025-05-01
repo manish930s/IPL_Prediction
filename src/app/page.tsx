@@ -12,7 +12,7 @@ const upcomingMatches = [
     predictedWinner: "Mumbai Indians",
     confidence: 75,
     keyFactors: ["Recent Form", "Head-to-Head", "Rohit Sharma's form"],
-    date: "Apr 15, 2024",
+    date: "Apr 15, 2025", // Updated year
     venue: "Wankhede Stadium, Mumbai",
     team1Logo: "https://picsum.photos/seed/mi/40/40",
     team2Logo: "https://picsum.photos/seed/csk/40/40",
@@ -23,7 +23,7 @@ const upcomingMatches = [
     predictedWinner: "Kolkata Knight Riders",
     confidence: 68,
     keyFactors: ["Spin Attack", "Venue Record", "Maxwell's inconsistency"],
-    date: "Apr 16, 2024",
+    date: "Apr 16, 2025", // Updated year
     venue: "Eden Gardens, Kolkata",
     team1Logo: "https://picsum.photos/seed/rcb/40/40",
     team2Logo: "https://picsum.photos/seed/kkr/40/40",
@@ -34,7 +34,7 @@ const upcomingMatches = [
     predictedWinner: "Delhi Capitals",
     confidence: 82,
     keyFactors: ["Strong Batting", "Warner's Experience", "Home Advantage"],
-    date: "Apr 17, 2024",
+    date: "Apr 17, 2025", // Updated year
     venue: "Arun Jaitley Stadium, Delhi",
     team1Logo: "https://picsum.photos/seed/dc/40/40",
     team2Logo: "https://picsum.photos/seed/srh/40/40",

@@ -67,11 +67,13 @@ export function MatchPredictionCard({
     <Card className="shadow-md hover:shadow-lg transition-shadow duration-200 flex flex-col h-full">
       <CardHeader>
         <CardTitle className="text-lg flex justify-between items-center gap-2">
-          <span className="truncate flex-1">{team1} vs {team2}</span>
+          {/* Removed truncate to allow wrapping */}
+          <span className="flex-1">{team1} vs {team2}</span>
           {/* Display the pre-formatted date */}
           <span className="text-xs font-normal text-muted-foreground flex-shrink-0">{date}</span>
         </CardTitle>
-        <CardDescription className="truncate">{venue}</CardDescription>
+        {/* Removed truncate to allow wrapping */}
+        <CardDescription>{venue}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col flex-grow">
         <div className="flex justify-around items-start mb-4 text-center gap-2">
@@ -122,7 +124,8 @@ export function MatchPredictionCard({
           <h4 className="text-sm font-semibold mb-2">Prediction</h4>
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-primary flex-shrink-0" />
-            <span className="font-medium truncate flex-1">{predictedWinner === "TBC" ? "To Be Confirmed" : `${predictedWinner} to win`}</span>
+            {/* Removed truncate to allow wrapping */}
+            <span className="font-medium flex-1">{predictedWinner === "TBC" ? "To Be Confirmed" : `${predictedWinner} to win`}</span>
             {confidence !== undefined && (
               <Badge variant={confidence > 70 ? "default" : "secondary"} className="ml-auto bg-primary text-primary-foreground flex-shrink-0">
                 {confidence}% Conf.
@@ -137,6 +140,7 @@ export function MatchPredictionCard({
           </div>
         </div>
 
+        {/* mt-auto pushes this section to the bottom if space allows */}
         <div className="mt-auto">
           <h4 className="text-sm font-semibold mb-2">Key Factors</h4>
           <div className="flex flex-wrap gap-1">

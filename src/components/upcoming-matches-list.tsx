@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -62,15 +63,16 @@ export function UpcomingMatchesList({ allMatches }: UpcomingMatchesListProps) {
 
   if (now === null) {
       // Render loading state or placeholder while waiting for client-side hydration
-      return <p className="text-muted-foreground">Loading matches...</p>;
+      return <p className="text-muted-foreground text-center">Loading matches...</p>;
   }
 
   if (visibleMatches.length === 0) {
-    return <p className="text-muted-foreground">No upcoming matches found based on the current date.</p>;
+    return <p className="text-muted-foreground text-center">No upcoming matches found based on the current date.</p>;
   }
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    // Responsive Grid: 1 col default, 2 cols on sm+, 3 cols on lg+, 4 cols on xl+
+    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {visibleMatches.map((match, index) => (
         // Pass only the necessary props to MatchPredictionCard
         <MatchPredictionCard
@@ -80,7 +82,8 @@ export function UpcomingMatchesList({ allMatches }: UpcomingMatchesListProps) {
           predictedWinner={match.predictedWinner}
           confidence={match.confidence}
           keyFactors={match.keyFactors}
-          date={match.date.split(' ')[0] + ', ' + match.date.split(' ')[1] + ' ' + match.date.split(' ')[2]} // Format date for display
+          // Format date to "MMM d, yyyy" for display
+          date={match.parsedDate ? match.parsedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : match.date.split(' ')[0] + ' ' + match.date.split(' ')[1] + ' ' + match.date.split(' ')[2]}
           venue={match.venue}
           team1Logo={match.team1Logo}
           team2Logo={match.team2Logo}

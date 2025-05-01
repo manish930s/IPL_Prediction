@@ -1,17 +1,19 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ShieldCheck, Trophy, TrendingUp, TrendingDown } from "lucide-react"; // Example icons
+import { ShieldCheck, Trophy } from "lucide-react"; // Removed unused icons
+import Image from 'next/image'; // Use next/image for optimization
 
+// Updated props interface
 interface MatchPredictionCardProps {
   team1: string;
-  team1Logo?: string; // Optional: URL for team 1 logo
+  team1Logo?: string;
   team2: string;
-  team2Logo?: string; // Optional: URL for team 2 logo
+  team2Logo?: string;
   predictedWinner: string;
-  confidence?: number; // Optional: Confidence level (0-100)
+  confidence?: number;
   keyFactors: string[];
-  date: string;
+  date: string; // Expecting pre-formatted date string (e.g., "May 3, 2025")
   venue: string;
 }
 
@@ -23,7 +25,7 @@ export function MatchPredictionCard({
   predictedWinner,
   confidence,
   keyFactors,
-  date,
+  date, // Now expects formatted date
   venue,
 }: MatchPredictionCardProps) {
   const isTeam1PredictedWinner = team1 === predictedWinner;
@@ -31,7 +33,6 @@ export function MatchPredictionCard({
 
   // Helper function to generate AI hint based on team name
   const getAiHint = (teamName: string): string => {
-      // Remove spaces and convert to lowercase for a basic hint
       const hintBase = teamName.toLowerCase().replace(/\s+/g, '');
       return `${hintBase} cricket logo`;
   };
@@ -42,6 +43,7 @@ export function MatchPredictionCard({
       <CardHeader>
         <CardTitle className="text-lg flex justify-between items-center">
           <span className="truncate flex-1 mr-2">{team1} vs {team2}</span>
+          {/* Display the pre-formatted date */}
           <span className="text-xs font-normal text-muted-foreground flex-shrink-0">{date}</span>
         </CardTitle>
         <CardDescription className="truncate">{venue}</CardDescription>
@@ -49,10 +51,13 @@ export function MatchPredictionCard({
       <CardContent className="flex flex-col flex-grow">
         <div className="flex justify-around items-start mb-4 text-center">
           <div className="flex flex-col items-center w-1/3">
-            <img
+             {/* Use next/image */}
+             <Image
                 src={team1Logo}
                 alt={`${team1} Logo`}
-                className="w-10 h-10 mb-1 rounded-full object-cover"
+                width={40}
+                height={40}
+                className="mb-1 rounded-full object-cover"
                 data-ai-hint={getAiHint(team1)}
              />
             <span className="font-medium text-sm break-words">{team1}</span>
@@ -60,10 +65,13 @@ export function MatchPredictionCard({
           </div>
           <span className="text-muted-foreground font-bold text-xl pt-4">vs</span>
           <div className="flex flex-col items-center w-1/3">
-            <img
+             {/* Use next/image */}
+             <Image
                 src={team2Logo}
                 alt={`${team2} Logo`}
-                className="w-10 h-10 mb-1 rounded-full object-cover"
+                width={40}
+                height={40}
+                className="mb-1 rounded-full object-cover"
                 data-ai-hint={getAiHint(team2)}
              />
             <span className="font-medium text-sm break-words">{team2}</span>
